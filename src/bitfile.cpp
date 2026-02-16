@@ -35,8 +35,6 @@ Mike FIeld [hamster@snap.net.nz] 15 Oct 2012
 #include <string.h>
 #include <stdio.h>
 
-using namespace std;
-
 BitFile::BitFile()
   : length(0), buffer(0), Error(false), logfile(stderr) {
 
@@ -246,14 +244,14 @@ unsigned long BitFile::saveAs(int style, const char  *device, const char *fname)
     return clip;
 }
 
-void BitFile::error(const string &str)
+void BitFile::error(const std::string &str)
 {
     errorStr=str;
     Error=true;
     fprintf(logfile,"%s\n",str.c_str());
 }
 
-void BitFile::readField(string &field, FILE *fp)
+void BitFile::readField(std::string &field, FILE *fp)
 {
     int ret;
     byte t[2];
